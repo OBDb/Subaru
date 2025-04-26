@@ -12,10 +12,10 @@
   ]},
 { "hdr": "7B0", "rax": "7B8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1024"}, "freq": 0.25,
   "signals": [
-    {"id": "SUBARU_FR_VSS",      "path": "Tires",   "fmt": { "len": 16, "max": 65535,               "unit": "scalar"  }, "name": "Tire 1 id"},
-    {"id": "SUBARU_FL_VSS",      "path": "Tires",   "fmt": { "len": 16, "max": 65535,               "unit": "scalar"  }, "name": "Tire 1 id"},
-    {"id": "SUBARU_RR_VSS",      "path": "Tires",   "fmt": { "len": 16, "max": 65535,               "unit": "scalar"  }, "name": "Tire 1 id"},
-    {"id": "SUBARU_RL_VSS",      "path": "Tires",   "fmt": { "len": 16, "max": 65535,               "unit": "scalar"  }, "name": "Tire 1 id"},
+    {"id": "SUBARU_FR_VSS",      "path": "Tires",   "fmt": { "len": 16, "max": 65535,               "unit": "scalar"  }, "name": "Front right tire speed"},
+    {"id": "SUBARU_FL_VSS",      "path": "Tires",   "fmt": { "len": 16, "max": 65535,               "unit": "scalar"  }, "name": "Front left tire speed"},
+    {"id": "SUBARU_RR_VSS",      "path": "Tires",   "fmt": { "len": 16, "max": 65535,               "unit": "scalar"  }, "name": "Rear right tire speed"},
+    {"id": "SUBARU_RL_VSS",      "path": "Tires",   "fmt": { "len": 16, "max": 65535,               "unit": "scalar"  }, "name": "Rear left tire speed"},
     {"id": "SUBARU_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 65535, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle (ABS)"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "002F"}, "freq": 1,
