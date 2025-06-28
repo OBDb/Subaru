@@ -13,6 +13,46 @@
     {"id": "SUBARU_TID3", "path": "Tires", "fmt": {"bix": 48, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Tire 3 id"},
     {"id": "SUBARU_TID4", "path": "Tires", "fmt": {"bix": 72, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Tire 4 id"}
   ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "0005"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_ECT", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine coolant temperature"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "002F"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_FLI_V2", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "10A6"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_ACC_POS", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal position"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "10E7"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_EOT", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "1135"}, "freq": 0.5,
+  "signals": [
+    {"id": "SUBARU_12V_C", "path": "Battery", "fmt": { "len": 8, "max": 127, "min": -128, "add": -128, "unit": "milliamps" }, "name": "12V battery current"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "1136"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_12V_T", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V battery temperature"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "1149"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_ASH_RATIO_TOT", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Cumulative ash ratio"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "1155"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_OIL_CHANGE_DIST", "path": "Engine", "fmt": { "len": 8, "max": 25500, "mul": 100, "unit": "kilometers" }, "name": "Estimated distance to oil change"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "116A"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_DPF_WARN_DIST", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Distance since DPF warning light flashing"}
+  ]},
+{ "hdr": "7A2", "dbg": true, "cmd": {"22": "12ED"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_MAF_AVG", "path": "Engine", "fmt": { "len": 16, "max": 655.35, "div": 100, "unit": "gramsPerSecond" }, "name": "Mass air flow, average"}
+  ]},
 { "hdr": "7B0", "rax": "7B8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1024"}, "freq": 0.25,
   "signals": [
     {"id": "SUBARU_FR_VSS", "path": "Tires", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Front right tire speed"}
@@ -33,10 +73,6 @@
   "signals": [
     {"id": "SUBARU_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 65535, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle (ABS)"}
   ]},
-{ "hdr": "7E0", "dbg": true, "cmd": {"22": "0005"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_COOLANT_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature"}
-  ]},
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "002F"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 255, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
@@ -44,10 +80,6 @@
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "10E5"}, "freq": 15,
   "signals": [
     {"id": "SUBARU_ODO", "path": "Trips", "fmt": { "len": 16, "max": 131070, "mul": 2, "unit": "kilometers" }, "name": "Odometer"}
-  ]},
-{ "hdr": "7E6", "dbg": true, "cmd": {"22": "106B"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_ATF_T", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "ATF temperature"}
   ]}
 ]
 }
