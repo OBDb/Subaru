@@ -1,12 +1,4 @@
 { "commands": [
-{ "hdr": "750", "eax": "2A", "fcm1": true, "dbg": true, "cmd": {"21": "16"}, "freq": 5,
-  "signals": [
-    {"id": "SUBARU_TT_1", "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -20, "add": -40, "unit": "celsius" }, "name": "Tire temperature #1"},
-    {"id": "SUBARU_TT_2", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -20, "add": -40, "unit": "celsius" }, "name": "Tire temperature #2"},
-    {"id": "SUBARU_TT_3", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -20, "add": -40, "unit": "celsius" }, "name": "Tire temperature #3"},
-    {"id": "SUBARU_TT_4", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -20, "add": -40, "unit": "celsius" }, "name": "Tire temperature #4"},
-    {"id": "SUBARU_TT_5", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 150, "min": -20, "add": -40, "unit": "celsius" }, "name": "Tire temperature #5"}
-  ]},
 { "hdr": "753", "rax": "75B", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1022"}, "freq": 15,
   "signals": [
     {"id": "SUBARU_TP_RL", "path": "Tires", "fmt": {           "len": 8, "max": 51, "div": 5, "unit": "psi" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
@@ -27,7 +19,7 @@
   ]},
 { "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "002F"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level"}
+    {"id": "SUBARU_FLI_V2", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level"}
   ]},
 { "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "10A6"}, "freq": 0.25,
   "signals": [
@@ -81,9 +73,13 @@
   "signals": [
     {"id": "SUBARU_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 65535, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"}
   ]},
+{ "hdr": "7C0", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"21": "29"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 127, "div": 2, "unit": "liters" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "002F"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_FLI_V2", "path": "Fuel", "fmt": { "len": 8, "max": 255, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
+    {"id": "SUBARU_FLI_V3", "path": "Fuel", "fmt": { "len": 8, "max": 255, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "10E5"}, "freq": 15,
   "signals": [
