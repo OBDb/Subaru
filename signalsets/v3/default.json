@@ -390,7 +390,7 @@
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1321"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_BAT_TERMINAL_VOLTAGE", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "Battery terminal voltage"}
+    {"id": "SUBARU_BAT_TERMINAL_VOLTAGE", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "Battery terminal voltage", "suggestedMetric": "starterBatteryVoltage"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1322"}, "freq": 1,
   "signals": [
@@ -622,7 +622,7 @@
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "1037"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_12V_AUX_BAT_VOLTAGE", "path": "Battery", "fmt": { "len": 8, "max": 25.5, "mul": 25.5, "div": 255, "unit": "volts" }, "name": "12V aux battery voltage"}
+    {"id": "SUBARU_12V_AUX_BAT_VOLTAGE", "path": "Battery", "fmt": { "len": 8, "max": 25.5, "mul": 25.5, "div": 255, "unit": "volts" }, "name": "12V aux battery voltage", "suggestedMetric": "starterBatteryVoltage"}
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "1039"}, "freq": 1,
   "signals": [
