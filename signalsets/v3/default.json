@@ -17,17 +17,17 @@
     {"id": "SUBARU_TID3", "path": "Tires", "fmt": {"bix": 48, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Tire 3 id"},
     {"id": "SUBARU_TID4", "path": "Tires", "fmt": {"bix": 72, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Tire 4 id"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "0005"}, "freq": 1,
+{ "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1135"}, "freq": 0.5,
   "signals": [
-    {"id": "SUBARU_COOLANT_T_7A2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature, v2", "suggestedMetric": "engineCoolantTemperature"}
+    {"id": "SUBARU_12V_C", "path": "Battery", "fmt": { "len": 8, "max": 127, "min": -128, "add": -128, "unit": "milliamps" }, "name": "12V battery current"}
+  ]},
+{ "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1136"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_12V_T", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V battery temperature"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "0023"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_FRP", "path": "Fuel", "fmt": { "len": 16, "max": 65535, "unit": "kilopascal" }, "name": "Fuel rail pressure"}
-  ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "002F"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_FUEL_LEVEL", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "003C"}, "freq": 1,
   "signals": [
@@ -125,10 +125,6 @@
   "signals": [
     {"id": "SUBARU_FUEL_TANK_AIR_PRESSURE", "path": "Fuel", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "unknown" }, "name": "Fuel tank air pressure"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10E7"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_EOT_7A2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
-  ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10E8"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_OSV_DUTY_RIGHT", "path": "ECU", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Oil supply value, duty right"}
@@ -163,7 +159,7 @@
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1116"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_FINAL_INJECTION_AMOUNT_MM_ST_", "path": "ECU", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Final injection amount"}
+    {"id": "SUBARU_FINAL_INJECTION_AMOUNT_MM_ST", "path": "ECU", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Final injection amount"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1118"}, "freq": 1,
   "signals": [
@@ -179,7 +175,7 @@
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "111F"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_INLET_AIR_T_AFTER_AIR_FILTER_", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Inlet air temperature (after air filter)"}
+    {"id": "SUBARU_INLET_AIR_T_AFTER_AIR_FILTER", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Inlet air temperature, after air filter"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1121"}, "freq": 1,
   "signals": [
@@ -213,19 +209,6 @@
   "signals": [
     {"id": "SUBARU_QUANTITY_CORRECTION_4", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Quantity correction cylinder #4"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1135"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_BAT_CURRENT", "path": "Battery", "fmt": { "len": 8, "max": 255,                           "unit": "milliamps" }, "name": "Battery current"},
-    {"id": "SUBARU_12V_C",       "path": "Battery", "fmt": { "len": 8, "max": 127, "min": -128, "add": -128, "unit": "milliamps" }, "name": "12V battery current"}
-  ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1136"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_BAT_T", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Battery temperature"}
-  ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1149"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_CUMULATIVE_ASH_RATIO", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Cumulative ash ratio"}
-  ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "114A"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_PRESSURE_DIFFERENCE_BETWEEN_DPF_INLET_AND_OUTLET", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Pressure difference between DPF inlet and outlet"}
@@ -245,10 +228,6 @@
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "114E"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_OIL_DILUTION_RATIO", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Oil dilution ratio"}
-  ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1155"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_ESTIMATED_DISTANCE_TO_OIL_CHANGE", "path": "Trips", "fmt": { "len": 8, "max": 25500, "mul": 100, "unit": "kilometers" }, "name": "Estimated distance to oil change"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1156"}, "freq": 1,
   "signals": [
@@ -298,10 +277,6 @@
   "signals": [
     {"id": "SUBARU_FINAL_MAIN_INJECTION_PERIOD", "path": "ECU", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "milliseconds" }, "name": "Final main injection period"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "116A"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_DPF_WARN_ODO", "path": "Trips", "fmt": { "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Distance since DPF warning light flashing"}
-  ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1189"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_OIL_DILUTION_AMOUNT", "path": "ECU", "fmt": { "len": 8, "max": 1.275, "div": 200, "unit": "scalar" }, "name": "Oil dilution amount"}
@@ -320,7 +295,7 @@
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1230"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_STOP_LIGHT_SWITCH", "path": "Control", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Stop light switch"}
+    {"id": "SUBARU_STOP_LIGHT_SWITCH", "path": "Lights", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Stop light switch"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1231"}, "freq": 1,
   "signals": [
@@ -413,7 +388,7 @@
   ]},
 { "hdr": "7A3", "rax": "7AB", "dbg": true, "cmd": {"22": "10C9"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_TRANSFER_DUTY_RATIO", "path": "ECU", "fmt": { "len": 8, "max": 127.5, "mul": 0.5, "unit": "percent" }, "name": "Transfer duty ratio"}
+    {"id": "SUBARU_TRANSFER_DUTY_RATIO", "path": "ECU", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "Transfer duty ratio"}
   ]},
 { "hdr": "7A3", "rax": "7AB", "dbg": true, "cmd": {"22": "10CB"}, "freq": 1,
   "signals": [
@@ -495,10 +470,6 @@
   "signals": [
     {"id": "SUBARU_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 32767, "min": -32768, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0005"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_COOLANT_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature"}
-  ]},
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "002F"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 255, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
@@ -509,7 +480,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10E7"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_EOT", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
+    {"id": "SUBARU_EOT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "1052"}, "freq": 1,
   "signals": [
@@ -559,10 +530,6 @@
   "signals": [
     {"id": "SUBARU_DRIVEMOTOR_INVERTER_T_C", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Drive motor inverter temperature c"}
   ]},
-{ "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "106B"}, "freq": 1,
-  "signals": [
-    {"id": "SUBARU_ATF_T", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Automatic transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
-  ]},
 { "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "106D"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_DRIVEMOTOR_T_A", "path": "Engine", "fmt": { "len": 8, "max": 200, "min": -55, "add": -55, "unit": "celsius" }, "name": "Drive motor temperature a"}
@@ -605,11 +572,11 @@
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2035"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_ELECTRIC_OIL_PUMP_CURRENT", "path": "ECU", "fmt": { "len": 8, "max": 15.9375, "mul": 0.0625, "unit": "amps" }, "name": "Electric oil pump current"}
+    {"id": "SUBARU_ELECTRIC_OIL_PUMP_CURRENT", "path": "ECU", "fmt": { "len": 8, "max": 15.9375, "div": 16, "unit": "amps" }, "name": "Electric oil pump current"}
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2061"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_ENGINE_TORQUE_UPPER_ECM_", "path": "ECU", "fmt": { "len": 8, "max": 408, "mul": 408, "div": 255, "unit": "newtonMeters" }, "name": "Engine torque upper"}
+    {"id": "SUBARU_ENGINE_TORQUE_UPPER_ECM", "path": "ECU", "fmt": { "len": 8, "max": 408, "mul": 408, "div": 255, "unit": "newtonMeters" }, "name": "Engine torque upper"}
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2062"}, "freq": 1,
   "signals": [
@@ -617,7 +584,7 @@
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "20E2"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_12V_AUX_BAT_T", "path": "Battery", "fmt": { "len": 8, "max": 87.5, "min": -40, "mul": 0.5, "add": -40, "unit": "celsius" }, "name": "12V aux battery temperature"}
+    {"id": "SUBARU_12V_AUX_BAT_T", "path": "Battery", "fmt": { "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "12V aux battery temperature"}
   ]}
 ]
 }
