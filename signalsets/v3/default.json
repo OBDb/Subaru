@@ -1,4 +1,9 @@
-{ "commands": [
+{ "ecu": [
+    { "hdr": "7E0", "type": "engine" },
+    { "hdr": "7E6", "type": "motor" },
+    { "hdr": "7E7", "type": "hybridControl" }
+  ],
+  "commands": [
 { "hdr": "746", "dbg": true, "cmd": {"22": "1032"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_STEER_ANGLE_746", "path": "Control", "fmt": { "len": 8, "max": 635, "min": -640, "mul": 5, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle, v2"}
@@ -24,6 +29,10 @@
 { "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1136"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_12V_T", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V battery temperature"}
+  ]},
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "0005"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_ECT", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "0023"}, "freq": 1,
   "signals": [
@@ -60,6 +69,10 @@
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10AB"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_RADIATOR_FAN", "path": "ECU", "fmt": { "len": 8, "max": 200, "unit": "percent" }, "name": "Radiator fan control"}
+  ]},
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10AC"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_PRIMARY_BOOST_CTRL", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Primary boost control"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10AE"}, "freq": 1,
   "signals": [
@@ -209,6 +222,10 @@
   "signals": [
     {"id": "SUBARU_QUANTITY_CORRECTION_4", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Quantity correction cylinder #4"}
   ]},
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1149"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_CUM_ASH_RAT", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Cumulative ash ratio"}
+  ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "114A"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_PRESSURE_DIFFERENCE_BETWEEN_DPF_INLET_AND_OUTLET", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Pressure difference between DPF inlet and outlet"}
@@ -228,6 +245,10 @@
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "114E"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_OIL_DILUTION_RATIO", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Oil dilution ratio"}
+  ]},
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1155"}, "freq": 30,
+  "signals": [
+    {"id": "SUBARU_ESTIMATED_DIST_OIL", "path": "Trips", "fmt": { "len": 8, "max": 25500, "mul": 100, "unit": "kilometers" }, "name": "Estimated distance to oil change"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1156"}, "freq": 1,
   "signals": [
@@ -276,6 +297,10 @@
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1162"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_FINAL_MAIN_INJECTION_PERIOD", "path": "ECU", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "milliseconds" }, "name": "Final main injection period"}
+  ]},
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "116A"}, "freq": 30,
+  "signals": [
+    {"id": "SUBARU_DIST_SINCE_PF_WARN", "path": "Trips", "fmt": { "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Distance since particulate filter warning"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1189"}, "freq": 1,
   "signals": [
@@ -470,9 +495,33 @@
   "signals": [
     {"id": "SUBARU_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 32767, "min": -32768, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0005"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_ECT_7E0", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "002F"}, "freq": 30,
   "signals": [
     {"id": "SUBARU_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "101E"}, "freq": 3600,
+  "signals": [
+    {"id": "SUBARU_TRIP_CNT", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Trip counter"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10A3"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_FUEL_INJ_1_WIDTH", "path": "Fuel", "fmt": { "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Fuel injection 1 pulse width"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10AC"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_PRIMARY_BOOST_CTRL_7E0", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Primary boost control"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10AF"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_TUMBLE_GEN_VLV_POS", "path": "Engine", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Tumble generator valve position sensor right"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10B0"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_TUMBLE_GEN_VLV_POS_SENS", "path": "Engine", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Tumble generator valve position sensor left"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "10E5"}, "freq": 15,
   "signals": [
@@ -481,6 +530,174 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10E7"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_EOT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10EC"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_EXH_VVT_RETARD_ANG", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "degrees" }, "name": "Exhaust VVT retard angle right"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10ED"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_EXH_VVT_RETARD_ANG_LEFT", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "degrees" }, "name": "Exhaust VVT retard angle left"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1149"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_CUM_ASH_RAT_7E0", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Cumulative ash ratio"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1155"}, "freq": 30,
+  "signals": [
+    {"id": "SUBARU_ESTIMATED_DIST_OIL_CHANGE", "path": "Trips", "fmt": { "len": 8, "max": 25500, "mul": 100, "unit": "kilometers" }, "name": "Estimated distance to oil change"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "116A"}, "freq": 30,
+  "signals": [
+    {"id": "SUBARU_DIST_SINCE_PF_WARN_7E0", "path": "Trips", "fmt": { "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Distance since particulate filter warning"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "11BE"}, "freq": 3600,
+  "signals": [
+    {"id": "SUBARU_INT_VVT_CLEANING", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Intake VVT cleaning self-recovery counter"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "11BF"}, "freq": 3600,
+  "signals": [
+    {"id": "SUBARU_EXH_VVT_CLEANING", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Exhaust VVT cleaning self-recovery counter"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1275"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_THROTTLE_MOTOR_V", "path": "Battery", "fmt": { "len": 8, "max": 20.4, "mul": 2, "div": 25, "unit": "volts" }, "name": "Throttle motor voltage"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1276"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_SUB_THROTTLE_SENS", "path": "Engine", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Sub throttle sensor"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1277"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_MAIN_THROTTLE_SENS", "path": "Engine", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Main throttle sensor"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1278"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_SUB_ACCEL_SENS", "path": "Movement", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Sub accelerator sensor"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1279"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_MAIN_ACCEL_SENS", "path": "Movement", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Main accelerator sensor"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1289"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_IDLE_MAF", "path": "Engine", "fmt": { "len": 8, "max": -297.45, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle mass air flow"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128A"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_IDLE_MAF_FEEDBACK", "path": "Engine", "fmt": { "len": 8, "max": -297.45, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle mass air flow feedback correction"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128B"}, "freq": 3600,
+  "signals": [
+    {"id": "SUBARU_IDLE_SPD_CTRL", "path": "Engine", "fmt": { "len": 8, "max": -297.45, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle speed control learning value"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128C"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_IDLE_AC_LOAD_CORR", "path": "Engine", "fmt": { "len": 8, "max": 2.55, "div": 100, "unit": "gramsPerSecond" }, "name": "Idle A/C load correction"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128D"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_ELEC_LOAD_FEEDBACK", "path": "Engine", "fmt": { "len": 8, "max": 2.55, "div": 100, "unit": "gramsPerSecond" }, "name": "Electric load feedback value"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128E"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_IDLE_DIRTY_THROTTLE", "path": "Engine", "fmt": { "len": 8, "max": -297.45, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle dirty throttle correction"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128F"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_INT_VVT_ADVANCE_TGT", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "degrees" }, "name": "Intake VVT advance, target angle right"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1290"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_INT_VVT_ADVANCE_TGT_ANG", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "degrees" }, "name": "Intake VVT advance, target angle left"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1291"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_EXH_VVT_RETARD_TGT", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "degrees" }, "name": "Exhaust VVT retard, target angle right"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1292"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_EXH_VVT_RETARD_TGT_ANG", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "degrees" }, "name": "Exhaust VVT retard, target angle left"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1295"}, "freq": 3600,
+  "signals": [
+    {"id": "SUBARU_PURGE_DENSITY_LEARN", "path": "Engine", "fmt": { "len": 8, "max": 99.1999, "min": -100, "mul": 332, "div": 425, "add": -100, "unit": "percent" }, "name": "Purge density learn value"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1298"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_TRANS_TURBINE_SPD", "path": "Movement", "fmt": { "len": 16, "max": 65535, "unit": "rpm" }, "name": "Transmission turbine speed"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1299"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_TRANS_LOCK_UP", "path": "Engine", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "Transmission lock-up"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "12CE"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_AMBIENT_T_SENS_SIG", "path": "Engine", "fmt": { "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "Ambient temperature for sensor signal"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "12D1"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_AMBIENT_T_CTRL", "path": "Engine", "fmt": { "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "Ambient temperature for control"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1352"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_SPLIT_RAT_FUEL_INJ_1", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Split ratio of fuel injection 1"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1353"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_SPLIT_RAT_FUEL_INJ_2", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Split ratio of fuel injection 2"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1354"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_SPLIT_RAT_FUEL_INJ_3", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Split ratio of fuel injection 3"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1355"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_SPLIT_RAT_FUEL_INJ_4", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Split ratio of fuel injection 4"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1357"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_DIRECT_FUEL_INJ_TIME_1", "path": "Fuel", "fmt": { "len": 16, "max": 262.14, "div": 250, "unit": "milliseconds" }, "name": "Direct fuel injection time 1"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1358"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_DIRECT_FUEL_INJ_TIME_2", "path": "Fuel", "fmt": { "len": 16, "max": 262.14, "div": 250, "unit": "milliseconds" }, "name": "Direct fuel injection time 2"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1359"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_DIRECT_FUEL_INJ_TIME_3", "path": "Fuel", "fmt": { "len": 16, "max": 262.14, "div": 250, "unit": "milliseconds" }, "name": "Direct fuel injection time 3"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "135A"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_DIRECT_FUEL_INJ_TIME_4", "path": "Fuel", "fmt": { "len": 16, "max": 262.14, "div": 250, "unit": "milliseconds" }, "name": "Direct fuel injection time 4"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "11CB"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_TURBINE_REVOLUTION", "path": "Movement", "fmt": { "len": 16, "max": 2097120, "mul": 32, "unit": "rpm" }, "name": "Turbine revolution speed"}
+  ]},
+{ "hdr": "7E3", "rax": "7EB", "dbg": true, "cmd": {"22": "1021"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_ST_CHG", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "High voltage battery state of charge"}
+  ]},
+{ "hdr": "7E3", "rax": "7EB", "dbg": true, "cmd": {"22": "102A"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_T_1", "path": "Battery", "fmt": { "len": 16, "max": 32667.5, "min": -100, "div": 2, "add": -100, "unit": "celsius" }, "name": "High voltage battery temperature 1"}
+  ]},
+{ "hdr": "7E3", "rax": "7EB", "dbg": true, "cmd": {"22": "102B"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_T_2", "path": "Battery", "fmt": { "len": 16, "max": 32667.5, "min": -100, "div": 2, "add": -100, "unit": "celsius" }, "name": "High voltage battery temperature 2"}
+  ]},
+{ "hdr": "7E3", "rax": "7EB", "dbg": true, "cmd": {"22": "102C"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_T_3", "path": "Battery", "fmt": { "len": 16, "max": 32667.5, "min": -100, "div": 2, "add": -100, "unit": "celsius" }, "name": "High voltage battery temperature 3"}
+  ]},
+{ "hdr": "7E3", "rax": "7EB", "dbg": true, "cmd": {"22": "102D"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_IAT", "path": "Battery", "fmt": { "len": 16, "max": 32667.5, "min": -100, "div": 2, "add": -100, "unit": "celsius" }, "name": "High voltage battery intake air temperature"}
+  ]},
+{ "hdr": "7E3", "rax": "7EB", "dbg": true, "cmd": {"22": "1143"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_CELL_T", "path": "Battery", "fmt": { "len": 16, "max": 6453.5, "min": -100, "div": 10, "add": -100, "unit": "celsius" }, "name": "High voltage battery cell temperature estimated"}
   ]},
 { "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "1052"}, "freq": 1,
   "signals": [
@@ -530,6 +747,10 @@
   "signals": [
     {"id": "SUBARU_DRIVEMOTOR_INVERTER_T_C", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Drive motor inverter temperature c"}
   ]},
+{ "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "106B"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_ATF_T", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Transmission fluid temperature"}
+  ]},
 { "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "106D"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_DRIVEMOTOR_T_A", "path": "Engine", "fmt": { "len": 8, "max": 200, "min": -55, "add": -55, "unit": "celsius" }, "name": "Drive motor temperature a"}
@@ -537,6 +758,22 @@
 { "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "106E"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_DRIVEMOTOR_T_B", "path": "Engine", "fmt": { "len": 8, "max": 200, "min": -55, "add": -55, "unit": "celsius" }, "name": "Drive motor temperature b"}
+  ]},
+{ "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "1081"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_COOLING_FAN", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "rpm" }, "name": "High voltage battery cooling fan speed"}
+  ]},
+{ "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "1082"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_COOLING_FAN_TGT", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "High voltage battery cooling fan duty, target"}
+  ]},
+{ "hdr": "7E6", "rax": "7EE", "dbg": true, "cmd": {"22": "1084"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_COOLING_FAN_DUTY", "path": "Battery", "fmt": { "len": 32, "max": 100, "unit": "percent" }, "name": "High voltage battery cooling fan duty output"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "1033"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_ST_CHG_7E7", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "High voltage battery state of charge"}
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "1037"}, "freq": 1,
   "signals": [
@@ -554,9 +791,25 @@
   "signals": [
     {"id": "SUBARU_12V_ENGINE_RESTART_BAT_T", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V engine restart battery temperature"}
   ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "107A"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_COOLING_FAN_DUTY_TGT", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "High voltage battery cooling fan duty, target"}
+  ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2006"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_ENGINE_TORQUE_TARGET", "path": "ECU", "fmt": { "len": 16, "max": 5553.5, "min": -1000, "div": 10, "add": -1000, "unit": "newtonMeters" }, "name": "Engine torque target"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2009"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_TOT_V", "path": "Battery", "fmt": { "len": 16, "max": 6553.5, "div": 10, "unit": "volts" }, "name": "High voltage battery total voltage"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "200A"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 6353.5, "min": -200, "div": 10, "add": -200, "unit": "amps" }, "name": "High voltage battery current"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "200C"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_COOLING_FAN_DUTY_TGT_7E7", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "rpm" }, "name": "High voltage battery cooling fan duty, target"}
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2012"}, "freq": 1,
   "signals": [
@@ -565,6 +818,30 @@
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2014"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_12V_SOC_CONTROL", "path": "Battery", "fmt": { "len": 8, "max": 100, "mul": 127.5, "div": 255, "unit": "percent" }, "name": "12V engine restart battery soc control"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2021"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_ST_HEALTH", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "High voltage battery state of health"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2022"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_T_MAX", "path": "Battery", "fmt": { "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "percent" }, "name": "High voltage battery temperature max"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2023"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_T_MIN", "path": "Battery", "fmt": { "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "percent" }, "name": "High voltage battery temperature min"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2024"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_IAT_7E7", "path": "Battery", "fmt": { "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "percent" }, "name": "High voltage battery intake air temperature"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2025"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_DCHG_POWER", "path": "Battery", "fmt": { "len": 8, "max": 25.5, "div": 10, "unit": "kilowatts" }, "name": "High voltage battery discharge power"}
+  ]},
+{ "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2026"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_CHG_POWER", "path": "Battery", "fmt": { "len": 8, "max": 25.5, "div": 10, "unit": "kilowatts" }, "name": "High voltage battery charge power"}
   ]},
 { "hdr": "7E7", "rax": "7EF", "dbg": true, "cmd": {"22": "2034"}, "freq": 1,
   "signals": [
