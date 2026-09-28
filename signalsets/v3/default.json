@@ -1,5 +1,7 @@
 { "ecu": [
+    { "hdr": "753", "type": "tpms" },
     { "hdr": "7E0", "type": "engine" },
+    { "hdr": "7E1", "type": "transmission" },
     { "hdr": "7E6", "type": "motor" },
     { "hdr": "7E7", "type": "hybridControl" }
   ],
@@ -509,7 +511,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10A3"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_FUEL_INJ_1_WIDTH", "path": "Fuel", "fmt": { "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Fuel injection 1 pulse width"}
+    {"id": "SUBARU_FUEL_INJ_1_WIDTH", "path": "Fuel", "fmt": { "len": 8, "max": 65.28, "mul": 32, "div": 125, "unit": "milliseconds" }, "name": "Fuel injection 1 pulse width"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10AC"}, "freq": 1,
   "signals": [
