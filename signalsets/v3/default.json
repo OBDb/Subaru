@@ -583,15 +583,15 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1289"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_IDLE_MAF", "path": "Engine", "fmt": { "len": 8, "max": -297.45, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle mass air flow"}
+    {"id": "SUBARU_IDLE_MAF", "path": "Engine", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "gramsPerSecond" }, "name": "Idle mass air flow"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128A"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_IDLE_MAF_FEEDBACK", "path": "Engine", "fmt": { "len": 8, "max": -297.45, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle mass air flow feedback correction"}
+    {"id": "SUBARU_IDLE_MAF_FEEDBACK", "path": "Engine", "fmt": { "len": 16, "max": 355, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle mass air flow feedback correction"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128B"}, "freq": 3600,
   "signals": [
-    {"id": "SUBARU_IDLE_SPD_CTRL", "path": "Engine", "fmt": { "len": 8, "max": -297.45, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle speed control learning value"}
+    {"id": "SUBARU_IDLE_SPD_CTRL", "path": "Engine", "fmt": { "len": 16, "max": 355, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle speed control learning value"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128C"}, "freq": 1,
   "signals": [
@@ -603,7 +603,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128E"}, "freq": 0.25,
   "signals": [
-    {"id": "SUBARU_IDLE_DIRTY_THROTTLE", "path": "Engine", "fmt": { "len": 8, "max": -297.45, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle dirty throttle correction"}
+    {"id": "SUBARU_IDLE_DIRTY_THROTTLE", "path": "Engine", "fmt": { "len": 16, "max": 355, "min": -300, "div": 100, "add": -300, "unit": "gramsPerSecond" }, "name": "Idle dirty throttle correction"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "128F"}, "freq": 1,
   "signals": [
@@ -673,9 +673,41 @@
   "signals": [
     {"id": "SUBARU_DIRECT_FUEL_INJ_TIME_4", "path": "Fuel", "fmt": { "len": 16, "max": 262.14, "div": 250, "unit": "milliseconds" }, "name": "Direct fuel injection time 4"}
   ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "1017"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_CVT_T_V2", "path": "Transmission", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "CVT fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "1045"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_CVT_LOCKUP_DUTY", "path": "Transmission", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "Torque converter lock-up duty"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "1065"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_AWD_TRANSFER_DUTY", "path": "Transmission", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "AWD transfer clutch duty"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "1067"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_CVT_TURBINE_RPM", "path": "Transmission", "fmt": { "len": 8, "max": 8160, "mul": 32, "unit": "rpm" }, "name": "Turbine speed"}
+  ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "11CB"}, "freq": 0.25,
   "signals": [
     {"id": "SUBARU_TURBINE_REVOLUTION", "path": "Movement", "fmt": { "len": 16, "max": 2097120, "mul": 32, "unit": "rpm" }, "name": "Turbine revolution speed"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "300E"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_CVT_PRI_PULLEY_RPM", "path": "Transmission", "fmt": { "len": 16, "max": 65535, "unit": "rpm" }, "name": "CVT primary pulley speed"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "30D0"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_CVT_SEC_PULLEY_RPM", "path": "Transmission", "fmt": { "len": 16, "max": 65535, "unit": "rpm" }, "name": "CVT secondary pulley speed"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "30DA"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_CVT_RATIO", "path": "Transmission", "fmt": { "len": 16, "max": 257, "div": 255, "unit": "scalar" }, "name": "CVT gear ratio, actual"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "30F8"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_CVT_RATIO_TGT", "path": "Transmission", "fmt": { "len": 16, "max": 257, "div": 255, "unit": "scalar" }, "name": "CVT gear ratio, target"}
   ]},
 { "hdr": "7E3", "rax": "7EB", "dbg": true, "cmd": {"22": "1021"}, "freq": 1,
   "signals": [
