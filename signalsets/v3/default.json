@@ -42,18 +42,22 @@
     {"id": "SUBARU_TP_FR", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 51, "div": 5, "nullmin": 0, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
     {"id": "SUBARU_TP_FL", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 51, "div": 5, "nullmin": 0, "unit": "psi" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"}
   ]},
-{ "hdr": "753", "rax": "75B", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1028"}, "freq": 3600,
+{ "hdr": "753", "rax": "75B", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1028"}, "freq": 86400,
   "signals": [
     {"id": "SUBARU_TID1", "path": "Tires", "fmt": {           "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Tire 1 id"},
     {"id": "SUBARU_TID2", "path": "Tires", "fmt": {"bix": 24, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Tire 2 id"},
     {"id": "SUBARU_TID3", "path": "Tires", "fmt": {"bix": 48, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Tire 3 id"},
     {"id": "SUBARU_TID4", "path": "Tires", "fmt": {"bix": 72, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Tire 4 id"}
   ]},
-{ "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1135"}, "freq": 1,
+{ "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "10A6"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_ACC_POS", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal position"}
+  ]},
+{ "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1135"}, "freq": 0.5,
   "signals": [
     {"id": "SUBARU_12V_C", "path": "Battery", "fmt": { "len": 8, "max": 127, "min": -128, "add": -128, "unit": "milliamps" }, "name": "12V battery current"}
   ]},
-{ "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1136"}, "freq": 5,
+{ "hdr": "7A2", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1136"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_12V_T", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V battery temperature"}
   ]},
@@ -63,9 +67,9 @@
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "0023"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_FRP", "path": "Fuel", "fmt": { "len": 16, "max": 655350, "mul": 10, "unit": "kilopascal" }, "name": "Fuel rail pressure"}
+    {"id": "SUBARU_FRP", "path": "Fuel", "fmt": { "len": 16, "max": 65535, "unit": "kilopascal" }, "name": "Fuel rail pressure"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "003C"}, "freq": 5,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "003C"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_EGT_AT_CATALYST_INLET", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "celsius" }, "name": "Exhaust gas temperature, catalyst inlet"}
   ]},
@@ -81,15 +85,11 @@
   "signals": [
     {"id": "SUBARU_FUEL_INJECTOR_2_PULSE_WIDTH", "path": "Fuel", "fmt": { "len": 8, "max": 65.28, "div": 3.90625, "unit": "milliseconds" }, "name": "Fuel injector #2 pulse width"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10A5"}, "freq": 30,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10A5"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_ODO_7A2_10A5", "path": "Trips", "fmt": { "len": 16, "max": 131070, "mul": 2, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10A6"}, "freq": 0.25,
-  "signals": [
-    {"id": "SUBARU_ACC_POS", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal position"}
-  ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10A7"}, "freq": 5,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10A7"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_FUEL_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Fuel temperature"}
   ]},
@@ -137,7 +137,7 @@
   "signals": [
     {"id": "SUBARU_A_F_SENSOR_1", "path": "ECU", "fmt": { "len": 8, "max": 1.99, "mul": 1.99, "div": 255, "unit": "scalar" }, "name": "A/F sensor #1"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10D2"}, "freq": 3600,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10D2"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_EWG_VALVE_POSITION_SENSOR_LEARNING_CLOSED", "path": "Engine", "fmt": { "len": 8, "max": 29, "min": -10, "mul": 39.8, "div": 255, "add": -10, "unit": "millimeters" }, "name": "Electric waste gate valve position sensor learning value at fully-closed position"}
   ]},
@@ -157,9 +157,9 @@
   "signals": [
     {"id": "SUBARU_CRUISE_VSS_T", "path": "Cruise control", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Cruise speed, set"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10E5"}, "freq": 30,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10E5"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_ODO_7A2_10E5", "path": "Trips", "fmt": { "len": 16, "max": 131070, "mul": 2, "nullmax": 131070, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "SUBARU_ODO_7A2_10E5", "path": "Trips", "fmt": { "len": 16, "max": 131070, "mul": 2, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10E6"}, "freq": 1,
   "signals": [
@@ -213,7 +213,7 @@
   "signals": [
     {"id": "SUBARU_EGR_VALVE_OPENING_ANGLE", "path": "ECU", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "degrees" }, "name": "Exhaust gas recirculation valve opening angle"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "111F"}, "freq": 5,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "111F"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_INLET_AIR_T_AFTER_AIR_FILTER", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Inlet air temperature, after air filter"}
   ]},
@@ -221,7 +221,7 @@
   "signals": [
     {"id": "SUBARU_TARGET_ENGINE_SPEED", "path": "Movement", "fmt": { "len": 16, "max": 16383.75, "div": 4, "unit": "rpm" }, "name": "Target engine speed"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "112A"}, "freq": 3600,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "112A"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_MILEAGE_AFTER_INJECTOR_LEARNING", "path": "ECU", "fmt": { "len": 16, "max": 327675, "mul": 5, "unit": "kilometers" }, "name": "Mileage after injector learning"}
   ]},
@@ -235,19 +235,19 @@
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "112D"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_QUANTITY_CORRECTION_1", "path": "ECU", "fmt": { "len": 8, "max": 1.54, "min": -1, "div": 100, "add": -1, "unit": "milliseconds" }, "name": "Quantity correction cylinder #1"}
+    {"id": "SUBARU_QUANTITY_CORRECTION_1", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Quantity correction cylinder #1"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "112E"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_QUANTITY_CORRECTION_2", "path": "ECU", "fmt": { "len": 8, "max": 1.54, "min": -1, "div": 100, "add": -1, "unit": "milliseconds" }, "name": "Quantity correction cylinder #2"}
+    {"id": "SUBARU_QUANTITY_CORRECTION_2", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Quantity correction cylinder #2"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "112F"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_QUANTITY_CORRECTION_3", "path": "ECU", "fmt": { "len": 8, "max": 1.54, "min": -1, "div": 100, "add": -1, "unit": "milliseconds" }, "name": "Quantity correction cylinder #3"}
+    {"id": "SUBARU_QUANTITY_CORRECTION_3", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Quantity correction cylinder #3"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1130"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_QUANTITY_CORRECTION_4", "path": "ECU", "fmt": { "len": 8, "max": 1.54, "min": -1, "div": 100, "add": -1, "unit": "milliseconds" }, "name": "Quantity correction cylinder #4"}
+    {"id": "SUBARU_QUANTITY_CORRECTION_4", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Quantity correction cylinder #4"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1149"}, "freq": 1,
   "signals": [
@@ -257,7 +257,7 @@
   "signals": [
     {"id": "SUBARU_PRESSURE_DIFFERENCE_BETWEEN_DPF_INLET_AND_OUTLET", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Pressure difference between DPF inlet and outlet"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "114B"}, "freq": 5,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "114B"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_ESTIMATED_CATALYST_T", "path": "Engine", "fmt": { "len": 8, "max": 1235, "min": -40, "mul": 5, "add": -40, "unit": "celsius" }, "name": "Estimated catalyst temperature"}
   ]},
@@ -285,41 +285,41 @@
   "signals": [
     {"id": "SUBARU_DPF_REGENERATION_COUNT", "path": "ECU", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Diesel particulate filter regeneration count"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1158"}, "freq": 3600,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1158"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_MQI_FLV_1_1", "path": "ECU", "fmt": {           "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #1 cylinder #1"},
-    {"id": "SUBARU_MQI_FLV_2_1", "path": "ECU", "fmt": {"bix": 8,  "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #2 cylinder #1"},
-    {"id": "SUBARU_MQI_FLV_3_1", "path": "ECU", "fmt": {"bix": 16, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #3 cylinder #1"},
-    {"id": "SUBARU_MQI_FLV_4_1", "path": "ECU", "fmt": {"bix": 24, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #4 cylinder #1"},
-    {"id": "SUBARU_MQI_FLV_5_1", "path": "ECU", "fmt": {"bix": 32, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #5 cylinder #1"}
+    {"id": "SUBARU_MQI_FLV_1_1", "path": "ECU", "fmt": {           "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #1 cylinder #1"},
+    {"id": "SUBARU_MQI_FLV_2_1", "path": "ECU", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #2 cylinder #1"},
+    {"id": "SUBARU_MQI_FLV_3_1", "path": "ECU", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #3 cylinder #1"},
+    {"id": "SUBARU_MQI_FLV_4_1", "path": "ECU", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #4 cylinder #1"},
+    {"id": "SUBARU_MQI_FLV_5_1", "path": "ECU", "fmt": {"bix": 32, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #5 cylinder #1"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1159"}, "freq": 3600,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1159"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_MQI_FLV_1_2", "path": "ECU", "fmt": {           "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #1 cylinder #2"},
-    {"id": "SUBARU_MQI_FLV_2_2", "path": "ECU", "fmt": {"bix": 8,  "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #2 cylinder #2"},
-    {"id": "SUBARU_MQI_FLV_3_2", "path": "ECU", "fmt": {"bix": 16, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #3 cylinder #2"},
-    {"id": "SUBARU_MQI_FLV_4_2", "path": "ECU", "fmt": {"bix": 24, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #4 cylinder #2"},
-    {"id": "SUBARU_MQI_FLV_5_2", "path": "ECU", "fmt": {"bix": 32, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #5 cylinder #2"}
+    {"id": "SUBARU_MQI_FLV_1_2", "path": "ECU", "fmt": {           "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #1 cylinder #2"},
+    {"id": "SUBARU_MQI_FLV_2_2", "path": "ECU", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #2 cylinder #2"},
+    {"id": "SUBARU_MQI_FLV_3_2", "path": "ECU", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #3 cylinder #2"},
+    {"id": "SUBARU_MQI_FLV_4_2", "path": "ECU", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #4 cylinder #2"},
+    {"id": "SUBARU_MQI_FLV_5_2", "path": "ECU", "fmt": {"bix": 32, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #5 cylinder #2"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "115A"}, "freq": 3600,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "115A"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_MQI_FLV_1_3", "path": "ECU", "fmt": {           "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #1 cylinder #3"},
-    {"id": "SUBARU_MQI_FLV_2_3", "path": "ECU", "fmt": {"bix": 8,  "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #2 cylinder #3"},
-    {"id": "SUBARU_MQI_FLV_3_3", "path": "ECU", "fmt": {"bix": 16, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #3 cylinder #3"},
-    {"id": "SUBARU_MQI_FLV_4_3", "path": "ECU", "fmt": {"bix": 24, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #4 cylinder #3"},
-    {"id": "SUBARU_MQI_FLV_5_3", "path": "ECU", "fmt": {"bix": 32, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #5 cylinder #3"}
+    {"id": "SUBARU_MQI_FLV_1_3", "path": "ECU", "fmt": {           "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #1 cylinder #3"},
+    {"id": "SUBARU_MQI_FLV_2_3", "path": "ECU", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #2 cylinder #3"},
+    {"id": "SUBARU_MQI_FLV_3_3", "path": "ECU", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #3 cylinder #3"},
+    {"id": "SUBARU_MQI_FLV_4_3", "path": "ECU", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #4 cylinder #3"},
+    {"id": "SUBARU_MQI_FLV_5_3", "path": "ECU", "fmt": {"bix": 32, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #5 cylinder #3"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "115B"}, "freq": 3600,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "115B"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_MQI_FLV_1_4", "path": "ECU", "fmt": {           "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #1 cylinder #4"},
-    {"id": "SUBARU_MQI_FLV_2_4", "path": "ECU", "fmt": {"bix": 8,  "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #2 cylinder #4"},
-    {"id": "SUBARU_MQI_FLV_3_4", "path": "ECU", "fmt": {"bix": 16, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #3 cylinder #4"},
-    {"id": "SUBARU_MQI_FLV_4_4", "path": "ECU", "fmt": {"bix": 24, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #4 cylinder #4"},
-    {"id": "SUBARU_MQI_FLV_5_4", "path": "ECU", "fmt": {"bix": 32, "len": 8, "max": 0.63, "min": -0.64, "div": 200, "add": -0.64, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #5 cylinder #4"}
+    {"id": "SUBARU_MQI_FLV_1_4", "path": "ECU", "fmt": {           "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #1 cylinder #4"},
+    {"id": "SUBARU_MQI_FLV_2_4", "path": "ECU", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #2 cylinder #4"},
+    {"id": "SUBARU_MQI_FLV_3_4", "path": "ECU", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #3 cylinder #4"},
+    {"id": "SUBARU_MQI_FLV_4_4", "path": "ECU", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #4 cylinder #4"},
+    {"id": "SUBARU_MQI_FLV_5_4", "path": "ECU", "fmt": {"bix": 32, "len": 8, "max": 255, "unit": "milliseconds" }, "name": "Micro-quantity-injection final learning value #5 cylinder #4"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1161"}, "freq": 3600,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1161"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_INDIVIDUAL_PUMP_DIFFERENCE_LEARNING_VALUE", "path": "ECU", "fmt": { "len": 16, "max": 64535, "min": -1000, "add": -1000, "unit": "milliamps" }, "name": "Individual pump difference learning value"}
+    {"id": "SUBARU_INDIVIDUAL_PUMP_DIFFERENCE_LEARNING_VALUE", "path": "ECU", "fmt": { "len": 16, "max": 65535, "unit": "milliamps" }, "name": "Individual pump difference learning value"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1162"}, "freq": 1,
   "signals": [
@@ -357,7 +357,7 @@
   "signals": [
     {"id": "SUBARU_CC_RESUME_ACCELERATE_SWITCH", "path": "Cruise control", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Cruise control resume/accelerate switch"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1233"}, "freq": 0.25,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1233"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_BRAKE_SWITCH", "path": "Control", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Brake switch"}
   ]},
@@ -381,7 +381,7 @@
   "signals": [
     {"id": "SUBARU_SUB_FUEL_PUMP_RELAY_SWITCH", "path": "Fuel", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Sub fuel pump relay switch"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1254"}, "freq": 3600,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1254"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_INJECTOR_LEARNING_SWITCH", "path": "ECU", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Injector learning switch"}
   ]},
@@ -393,7 +393,7 @@
   "signals": [
     {"id": "SUBARU_ENGINE_STARTING_TIME", "path": "ECU", "fmt": { "len": 16, "max": 655350, "mul": 10, "unit": "milliseconds" }, "name": "Engine starting time"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "12ED"}, "freq": 0.25,
+{ "hdr": "7A2", "rax": "7AA", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "12ED"}, "freq": 0.25,
   "signals": [
     {"id": "SUBARU_MAF_AVG",               "path": "Engine", "fmt": { "len": 16, "max": 655.35, "div": 100, "unit": "gramsPerSecond" }, "name": "Mass air flow, average"},
     {"id": "SUBARU_MASS_AIR_FLOW_AVERAGE", "path": "ECU",    "fmt": { "len": 16, "max": 5,      "div": 100, "unit": "gramsPerSecond" }, "name": "Mass air flow average"}
@@ -414,15 +414,15 @@
   "signals": [
     {"id": "SUBARU_MONITOR_4", "path": "ECU", "fmt": { "len": 16, "max": 16383.75, "div": 4, "unit": "rpm" }, "name": "Cylinder monitor #4"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1321"}, "freq": 5,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1321"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_BAT_TERMINAL_VOLTAGE", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "Battery terminal voltage", "suggestedMetric": "starterBatteryVoltage"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1322"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_BAT_CHARGE_DISCHARGE_CURRENT", "path": "Battery", "fmt": { "len": 32, "max": 4292967, "min": -2000, "mul": 10, "div": 10000, "add": -2000, "unit": "amps" }, "name": "Battery charge/discharge current"}
+    {"id": "SUBARU_BAT_CHARGE_DISCHARGE_CURRENT", "path": "Battery", "fmt": { "len": 32, "max": 4292967.2949999999, "min": -2000, "mul": 10, "div": 10000, "add": -2000, "unit": "amps" }, "name": "Battery charge/discharge current"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1323"}, "freq": 5,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "1323"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_ESTIMATED_BAT_T", "path": "Battery", "fmt": { "len": 16, "max": 32727.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "Estimated battery temperature"}
   ]},
@@ -430,7 +430,7 @@
   "signals": [
     {"id": "SUBARU_REMAINING_BAT_CAPACITY", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 10, "unit": "percent" }, "name": "Remaining battery capacity", "suggestedMetric": "stateOfCharge"}
   ]},
-{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "307A"}, "freq": 5,
+{ "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "307A"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_INLET_AIR_T", "path": "Engine", "fmt": { "len": 8, "max": 300, "min": -30, "mul": 1.8, "add": -40, "unit": "fahrenheit" }, "name": "Inlet air temperature"}
   ]},
@@ -442,14 +442,14 @@
   "signals": [
     {"id": "SUBARU_TRANSFER_DUTY_RATIO", "path": "ECU", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "Transfer duty ratio"}
   ]},
-{ "hdr": "7A3", "rax": "7AB", "dbg": true, "cmd": {"22": "10CB"}, "freq": 0.25,
+{ "hdr": "7A3", "rax": "7AB", "dbg": true, "cmd": {"22": "10CB"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_TURBINE_SPEED", "path": "Movement", "fmt": { "len": 8, "max": 8160, "mul": 32, "unit": "rpm" }, "name": "Turbine speed"}
   ]},
 { "hdr": "7A3", "rax": "7AB", "dbg": true, "cmd": {"22": "10D2"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_TCM_ATF_T", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Transmission fluid temperature",                 "suggestedMetric": "transmissionFluidTemperature"},
-    {"id": "SUBARU_CVT_T",     "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Continuously variable transmission temperature"}
+    {"id": "SUBARU_CVT_T",     "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Continuously variable transmission temperature"},
+    {"id": "SUBARU_TCM_ATF_T", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Transmission fluid temperature",                 "suggestedMetric": "transmissionFluidTemperature"}
   ]},
 { "hdr": "7A3", "rax": "7AB", "dbg": true, "cmd": {"22": "1138"}, "freq": 1,
   "signals": [
@@ -469,7 +469,7 @@
   ]},
 { "hdr": "7A3", "rax": "7AB", "dbg": true, "cmd": {"22": "113D"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_TARGET_GEAR_RATIO", "path": "Transmission", "fmt": { "len": 8, "max": 0.9961089494, "mul": 256, "div": 65535, "unit": "scalar" }, "name": "Target gear ratio"}
+    {"id": "SUBARU_TARGET_GEAR_RATIO", "path": "Transmission", "fmt": { "len": 8, "max": 0.9961, "mul": 256, "div": 65535, "unit": "scalar" }, "name": "Target gear ratio"}
   ]},
 { "hdr": "7A3", "rax": "7AB", "dbg": true, "cmd": {"22": "113E"}, "freq": 1,
   "signals": [
@@ -512,10 +512,10 @@
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "47"}, "freq": 0.25,
   "signals": [
-    {"id": "SUBARU_LAT_G",       "path": "Orientation", "fmt": {           "len": 8,  "max": 2.5,    "min": -2.5,  "div": 50,                 "sign": true, "unit": "gravity" }, "name": "Lateral g"},
-    {"id": "SUBARU_LNG_G",       "path": "Orientation", "fmt": {"bix": 8,  "len": 8,  "max": 2.5,    "min": -2.5,  "div": 50,                 "sign": true, "unit": "gravity" }, "name": "Longitudinal g"},
-    {"id": "SUBARU_YAW_RATE",    "path": "Orientation", "fmt": {"bix": 16, "len": 8,  "max": 127,    "min": -128,             "add": -128,                  "unit": "degrees" }, "name": "Yaw rate"},
-    {"id": "SUBARU_STEER_ANGLE", "path": "Control",     "fmt": {"bix": 24, "len": 16, "max": 3276.7, "min": -3276, "div": 10, "add": -3276.8,               "unit": "degrees" }, "name": "Steering wheel angle"}
+    {"id": "SUBARU_LAT_G",           "path": "Orientation", "fmt": {           "len": 8,  "max": 2.5,    "min": -2.5,  "div": 50,                 "sign": true, "unit": "gravity" }, "name": "Lateral g"},
+    {"id": "SUBARU_LNG_G",           "path": "Orientation", "fmt": {"bix": 8,  "len": 8,  "max": 2.5,    "min": -2.5,  "div": 50,                 "sign": true, "unit": "gravity" }, "name": "Longitudinal g"},
+    {"id": "SUBARU_YAW_RATE",        "path": "Orientation", "fmt": {"bix": 16, "len": 8,  "max": 127,    "min": -128,             "add": -128,                  "unit": "degrees" }, "name": "Yaw rate"},
+    {"id": "SUBARU_STEER_ANGLE_7B0", "path": "Control",     "fmt": {"bix": 24, "len": 16, "max": 3276.7, "min": -3276, "div": 10, "add": -3276.8,               "unit": "degrees" }, "name": "Steering wheel angle"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1024"}, "freq": 0.25,
   "signals": [
@@ -535,8 +535,7 @@
   ]},
 { "hdr": "7B0", "rax": "7B8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1029"}, "freq": 0.25,
   "signals": [
-    {"id": "SUBARU_STEER_ANGLE_7B0", "path": "Control", "fmt": { "len": 16, "max": 32767, "min": -32767, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"},
-    {"id": "SUBARU_STEER_ANGLE_V2",  "path": "Control", "fmt": { "len": 16, "max": 32767, "min": -32768, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"}
+    {"id": "SUBARU_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 32767, "min": -32767, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "29"}, "freq": 1,
   "signals": [
@@ -584,11 +583,11 @@
   "signals": [
     {"id": "SUBARU_TUMBLE_GEN_VLV_POS_SENS", "path": "Engine", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Tumble generator valve position sensor left"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "10E5"}, "freq": 30,
+{ "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "10E5"}, "freq": 15,
   "signals": [
     {"id": "SUBARU_ODO", "path": "Trips", "fmt": { "len": 16, "max": 131070, "mul": 2, "nullmax": 131070, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10E7"}, "freq": 5,
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10E7"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_EOT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
   ]},
@@ -750,7 +749,7 @@
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "1065"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_AWD_TRANSFER_DUTY", "path": "Transmission", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "All-wheel-drive transfer clutch duty"}
+    {"id": "SUBARU_AWD_TRANSFER_DUTY", "path": "Transmission", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "All-wheel drive transfer clutch duty"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "1067"}, "freq": 0.25,
   "signals": [
