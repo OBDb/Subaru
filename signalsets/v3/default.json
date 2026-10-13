@@ -7,9 +7,154 @@
     { "hdr": "7E7", "type": "hybridControl" }
   ],
   "commands": [
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "106E"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_HVAC_P_745", "path": "Climate", "fmt": { "len": 8, "max": 12.75, "div": 20, "unit": "kilowatts" }, "name": "Climate power, charging control"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "10D1"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_CTRL_MODE", "path": "Battery", "name": "Control system mode", "fmt": {"len": 8, "map": {
+          "0": { "description": "None",     "value": "NONE" },
+          "1": { "description": "Driving",  "value": "DRIVING" },
+          "3": { "description": "Charging", "value": "CHARGING" }
+        }}
+    }
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "10D4"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_CHG_P", "path": "Battery", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilowatts" }, "name": "Battery charging power"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1619"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_AC_P_TGT",   "path": "Battery", "fmt": {           "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilowatts" }, "name": "AC target power"},
+    {"id": "SUBARU_AC_A_LIMIT", "path": "Battery", "fmt": {"bix": 24, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "amps"      }, "name": "AC current limit"},
+    {"id": "SUBARU_CHGR_OP", "path": "Battery", "name": "Charger operation status", "fmt": {"bix": 16, "len": 8, "map": {
+          "0": { "description": "Standby",            "value": "STANDBY" },
+          "1": { "description": "Ready",              "value": "READY" },
+          "2": { "description": "Stopped",            "value": "STOP" },
+          "3": { "description": "Stopped by request", "value": "ROB_STOP" }
+        }}
+    }
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "161C"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_CHG_V_TYPE", "path": "Battery", "name": "Charger supply voltage type", "fmt": {"len": 8, "map": {
+          "0": { "description": "None",        "value": "NONE" },
+          "1": { "description": "100V series", "value": "V100" },
+          "2": { "description": "200V series", "value": "V200" }
+        }}
+    }
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "161D"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_CHG_IN_P", "path": "Battery", "fmt": { "len": 16, "max": 327.675, "div": 200, "unit": "kilowatts" }, "name": "Charger input power"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "161E"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_CHGR_OUT_P",     "path": "Battery", "fmt": {           "len": 16, "max": 327.675, "div": 200, "unit": "kilowatts" }, "name": "Charger output power"},
+    {"id": "SUBARU_CHGR_OUT_P_TGT", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 327.675, "div": 200, "unit": "kilowatts" }, "name": "Charger output power, target"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1625"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_CHG_LID", "path": "Doors", "fmt": {"bix": 14, "len": 1, "max": 1, "unit": "noyes" }, "name": "Charging lid open"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1665"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_AC_P_USABLE", "path": "Battery", "fmt": { "len": 8, "max": 2.55, "div": 100, "unit": "kilowatts" }, "name": "AC usable power"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1666"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_HLC", "path": "Battery", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "DC high level communication state"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1667"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_CHG_STOP_REQ", "path": "Battery", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Charge stop request code"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1669"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_PISW", "path": "Battery", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Plug-in switch status"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "166A"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_DC_STA_P_MAX", "path": "Battery", "fmt": { "len": 16, "max": 655.35, "div": 100, "unit": "kilowatts" }, "name": "DC charger maximum power"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "166B"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_DC_STA_V", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "volts" }, "name": "DC charger present voltage"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "166C"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_DC_STA_A", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "amps" }, "name": "DC charger present current"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "166D"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_CHG_A_TGT", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "amps" }, "name": "Target charging current"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1679"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_DC_STA_A_MAX", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "amps" }, "name": "DC charger maximum current"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1681"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_DC_STA_V_MAX", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "volts" }, "name": "DC charger maximum voltage"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1684"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_AC_OP", "path": "Battery", "name": "AC charging operation status", "fmt": {"len": 8, "map": {
+          "0": { "description": "Stopped",     "value": "STOP" },
+          "1": { "description": "Starting up", "value": "STARTUP" },
+          "2": { "description": "Running",     "value": "RUNNING" },
+          "3": { "description": "Finishing",   "value": "FINISHING" }
+        }}
+    }
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1688"}, "freq": 60,
+  "signals": [
+    {"id": "SUBARU_CHG_OUTCOME", "path": "Battery", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Last charge outcome code"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1692"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_MY_ROOM", "path": "Climate", "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "noyes" }, "name": "Cabin mode active while parked"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "16A1"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_CHG_P_PERMIT", "path": "Battery", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "kilowatts" }, "name": "Minimum permission power"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1738"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_SOC_745", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "State of charge, charging control"}
+  ]},
+{ "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1739"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_SOC_DISPLAY", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "Displayed HV battery charge", "suggestedMetric": "stateOfCharge"}
+  ]},
 { "hdr": "746", "dbg": true, "cmd": {"22": "1032"}, "freq": 0.25,
   "signals": [
     {"id": "SUBARU_STEER_ANGLE_746", "path": "Control", "fmt": { "len": 8, "max": 635, "min": -640, "mul": 5, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle, v2"}
+  ]},
+{ "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_ODO_V2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+  ]},
+{ "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "182E"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_CMU01_VOLT", "path": "Battery.Modules.01", "fmt": {           "len": 16, "max": 5, "div": 13107, "unit": "volts" }, "name": "HV battery module 01 voltage"},
+    {"id": "SUBARU_HVBAT_CMU02_VOLT", "path": "Battery.Modules.02", "fmt": {"bix": 16, "len": 16, "max": 5, "div": 13107, "unit": "volts" }, "name": "HV battery module 02 voltage"}
+  ]},
+{ "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "1D3E"}, "freq": 60,
+  "signals": [
+    {"id": "SUBARU_CAP_1", "path": "Battery", "fmt": {            "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 1"},
+    {"id": "SUBARU_CAP_2", "path": "Battery", "fmt": {"bix": 16,  "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 2"},
+    {"id": "SUBARU_CAP_3", "path": "Battery", "fmt": {"bix": 32,  "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 3"},
+    {"id": "SUBARU_CAP_4", "path": "Battery", "fmt": {"bix": 48,  "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 4"},
+    {"id": "SUBARU_CAP_5", "path": "Battery", "fmt": {"bix": 64,  "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 5"},
+    {"id": "SUBARU_CAP_6", "path": "Battery", "fmt": {"bix": 80,  "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 6"},
+    {"id": "SUBARU_CAP_7", "path": "Battery", "fmt": {"bix": 96,  "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 7"},
+    {"id": "SUBARU_CAP_8", "path": "Battery", "fmt": {"bix": 112, "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 8"}
+  ]},
+{ "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "1F5B"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_SOC_747", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2.55, "unit": "percent" }, "name": "State of charge, battery ECU"}
   ]},
 { "hdr": "750", "eax": "2A", "fcm1": true, "dbg": true, "cmd": {"21": "15"}, "freq": 5,
   "signals": [
@@ -34,6 +179,51 @@
     {"id": "SUBARU_TT_FL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Front left tire temperature"},
     {"id": "SUBARU_TT_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Rear right tire temperature"},
     {"id": "SUBARU_TT_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Spare tire temperature"}
+  ]},
+{ "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_TT_1", "path": "Tires", "fmt": {           "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Front right tire temperature"},
+    {"id": "SUBARU_TT_2", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Front left tire temperature"},
+    {"id": "SUBARU_TT_3", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Rear right tire temperature"},
+    {"id": "SUBARU_TT_4", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Rear left tire temperature"}
+  ]},
+{ "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "1005"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_TP_1", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.1212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "SUBARU_TP_2", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.1212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "SUBARU_TP_3", "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.1212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "SUBARU_TP_4", "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.1212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
+  ]},
+{ "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "2021"}, "freq": 86400,
+  "signals": [
+    {"id": "SUBARU_TID_1", "path": "Tires", "name": "Tire 1 position", "fmt": {"len": 8, "map": {
+          "1": { "description": "Front left",  "value": "FL" },
+          "2": { "description": "Front right", "value": "FR" },
+          "3": { "description": "Rear left",   "value": "RL" },
+          "4": { "description": "Rear right",  "value": "RR" }
+        }}
+    },
+    {"id": "SUBARU_TID_2", "path": "Tires", "name": "Tire 2 position", "fmt": {"bix": 8, "len": 8, "map": {
+          "1": { "description": "Front left",  "value": "FL" },
+          "2": { "description": "Front right", "value": "FR" },
+          "3": { "description": "Rear left",   "value": "RL" },
+          "4": { "description": "Rear right",  "value": "RR" }
+        }}
+    },
+    {"id": "SUBARU_TID_3", "path": "Tires", "name": "Tire 3 position", "fmt": {"bix": 16, "len": 8, "map": {
+          "1": { "description": "Front left",  "value": "FL" },
+          "2": { "description": "Front right", "value": "FR" },
+          "3": { "description": "Rear left",   "value": "RL" },
+          "4": { "description": "Rear right",  "value": "RR" }
+        }}
+    },
+    {"id": "SUBARU_TID_4", "path": "Tires", "name": "Tire 4 position", "fmt": {"bix": 24, "len": 8, "map": {
+          "1": { "description": "Front left",  "value": "FL" },
+          "2": { "description": "Front right", "value": "FR" },
+          "3": { "description": "Rear left",   "value": "RL" },
+          "4": { "description": "Rear right",  "value": "RR" }
+        }}
+    }
   ]},
 { "hdr": "753", "rax": "75B", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1022"}, "freq": 15,
   "signals": [
@@ -79,7 +269,8 @@
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10A1"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_MAF_VOLTAGE", "path": "Battery", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Mass airflow sensor voltage"}
+    {"id": "SUBARU_MAF_VOLTAGE",  "path": "Battery", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts"  }, "name": "Mass airflow sensor voltage"},
+    {"id": "SUBARU_7A2_10A1_RAW", "path": "ECU",     "fmt": { "len": 8, "max": 255,            "unit": "scalar" }, "name": "Body module 10A1 raw value"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10A4"}, "freq": 1,
   "signals": [
@@ -517,6 +708,10 @@
     {"id": "SUBARU_YAW_RATE",        "path": "Orientation", "fmt": {"bix": 16, "len": 8,  "max": 127,    "min": -128,             "add": -128,                  "unit": "degrees" }, "name": "Yaw rate"},
     {"id": "SUBARU_STEER_ANGLE_7B0", "path": "Control",     "fmt": {"bix": 24, "len": 16, "max": 3276.7, "min": -3276, "div": 10, "add": -3276.8,               "unit": "degrees" }, "name": "Steering wheel angle"}
   ]},
+{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"22": "1006"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_MASTER_CYL_TEMP", "path": "Brakes", "fmt": { "len": 8, "max": 100, "min": -20, "add": -80, "unit": "celsius" }, "name": "Master cylinder sensor temperature"}
+  ]},
 { "hdr": "7B0", "rax": "7B8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "1024"}, "freq": 0.25,
   "signals": [
     {"id": "SUBARU_FR_VSS", "path": "Tires", "fmt": { "len": 16, "max": 3686, "mul": 562.5, "div": 10000, "unit": "kilometersPerHour" }, "name": "Front right wheel speed"}
@@ -537,9 +732,194 @@
   "signals": [
     {"id": "SUBARU_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 32767, "min": -32767, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"}
   ]},
+{ "hdr": "7B0", "rax": "7B8", "fcm1": true, "dbg": true, "cmd": {"22": "1045"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_EPB", "path": "Brakes", "name": "Parking brake actuator status", "fmt": {"len": 8, "map": {
+          "0": { "description": "Applied", "value": "APPLIED" }
+        }}
+    }
+  ]},
+{ "hdr": "7B0", "rax": "7B8", "fcm1": true, "dbg": true, "cmd": {"22": "104C"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_BRAKE_STROKE", "path": "Control", "fmt": { "len": 8, "max": 255, "unit": "millimeters" }, "name": "Brake pedal stroke"}
+  ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "29"}, "freq": 1,
   "signals": [
     {"id": "SUBARU_FLI_VOL", "path": "Fuel", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "liters" }, "name": "Fuel level, volume", "suggestedMetric": "fuelTankLevel"}
+  ]},
+{ "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "1001"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_CABIN_T", "path": "Climate", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "celsius" }, "name": "Cabin temperature"}
+  ]},
+{ "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "1002"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_AAT_7C4", "path": "Climate", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "celsius" }, "name": "Ambient temperature, climate"}
+  ]},
+{ "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "1036"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_HVAC_SET_RAW", "path": "Climate", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Climate set point code"}
+  ]},
+{ "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "1086"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_HEATER_RAW", "path": "Climate", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Electric heater power count"}
+  ]},
+{ "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "2801"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_BLOWER", "path": "Climate", "fmt": { "len": 8, "max": 7, "unit": "scalar" }, "name": "Blower level"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_ODO_7D2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_DRIVE_MODE", "path": "Drivetrain", "name": "Drive mode", "fmt": {"len": 8, "map": {
+          "0":  { "description": "Normal",    "value": "NORMAL" },
+          "1":  { "description": "Power",     "value": "POWER" },
+          "2":  { "description": "Sport",     "value": "SPORT" },
+          "3":  { "description": "Sport S",   "value": "SPORT_S" },
+          "4":  { "description": "Sport S+",  "value": "SPORT_S_PLUS" },
+          "5":  { "description": "Comfort",   "value": "COMFORT" },
+          "6":  { "description": "Eco",       "value": "ECO" },
+          "9":  { "description": "Range",     "value": "RANGE" },
+          "11": { "description": "Chauffeur", "value": "CHAUFFEUR" }
+        }}
+    }
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1040"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_TRANSAXLE_OIL_T", "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transaxle oil temperature"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1060"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_APP", "path": "Engine", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "Accelerator pedal position"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1061"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_SHIFT", "path": "Transmission", "name": "Shift position", "fmt": {"len": 8, "map": {
+          "0": { "description": "Park",    "value": "P" },
+          "2": { "description": "Reverse", "value": "R" },
+          "4": { "description": "Neutral", "value": "N" },
+          "6": { "description": "Drive",   "value": "D" }
+        }}
+    }
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "106C"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_HVBAT_SOC_MAX", "path": "Battery", "fmt": {"bix": 8,  "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "Maximum HV battery charge"},
+    {"id": "SUBARU_HVBAT_SOC_MIN", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "Minimum HV battery charge"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "106E"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_HVAC_P", "path": "Climate", "fmt": { "len": 8, "max": 12.75, "div": 20, "unit": "kilowatts" }, "name": "Climate power"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1075"}, "freq": 0.1,
+  "signals": [
+    {"id": "SUBARU_FR_WHEEL_VSS", "path": "Movement", "fmt": {           "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
+    {"id": "SUBARU_FL_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 16, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Front left wheel speed"},
+    {"id": "SUBARU_RR_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 32, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
+    {"id": "SUBARU_RL_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 48, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1076"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_READY", "path": "Drivetrain", "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "noyes" }, "name": "Ready to drive"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1087"}, "freq": 5,
+  "signals": [
+    {"id": "SUBARU_AWD_MODE", "path": "Drivetrain", "name": "All-wheel drive mode", "fmt": {"bix": 8, "len": 8, "map": {
+          "0": { "description": "Normal",                "value": "NORMAL" },
+          "2": { "description": "Snow/dirt",             "value": "SNOW_DIRT" },
+          "3": { "description": "Deep snow/mud",         "value": "DEEP_SNOW_MUD" },
+          "4": { "description": "Snow/dirt, paused",     "value": "SNOW_DIRT_PAUSED" },
+          "5": { "description": "Deep snow/mud, paused", "value": "DEEP_SNOW_MUD_PAUSED" }
+        }}
+    }
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A1"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_RPM", "path": "Engine", "fmt": {           "len": 16, "max": 32767, "min": -32768,           "add": -32768, "unit": "rpm"          }, "name": "Motor RPM"},
+    {"id": "SUBARU_TQ",  "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 4095,  "min": -4096,  "div": 8, "add": -4096,  "unit": "newtonMeters" }, "name": "Motor torque"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A2"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_RM_TQ_REQ", "path": "Engine", "fmt": {           "len": 16, "max": 32767, "min": -32768,           "add": -32768, "unit": "newtonMeters" }, "name": "Rear motor torque, requested"},
+    {"id": "SUBARU_RM_TQ",     "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 4095,  "min": -4096,  "div": 8, "add": -4096,  "unit": "newtonMeters" }, "name": "Rear motor torque"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A6"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_RM_INVRT_COOL_T", "path": "Engine", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Rear motor inverter, coolant temperature"},
+    {"id": "SUBARU_M_INVRT_MAX_T",   "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Motor inverter, maximum temperature"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10B2"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_INVRT_COOLANT_T", "path": "Engine", "fmt": { "len": 8, "max": 100, "add": -40, "unit": "celsius" }, "name": "Inverter coolant temperature"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "15E5"}, "freq": 60,
+  "signals": [
+    {"id": "SUBARU_12V_CAP", "path": "Electrical", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "ampereHours" }, "name": "12V battery full charge capacity"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "15E8"}, "freq": 60,
+  "signals": [
+    {"id": "SUBARU_12V_AH_IN",   "path": "Electrical", "fmt": {           "len": 32, "max": 429496729.5, "div": 10, "unit": "ampereHours" }, "name": "12V battery charge, total"},
+    {"id": "SUBARU_12V_AH_OUT",  "path": "Electrical", "fmt": {"bix": 32, "len": 32, "max": 429496729.5, "div": 10, "unit": "ampereHours" }, "name": "12V battery discharge, total"},
+    {"id": "SUBARU_READY_HOURS", "path": "Stats",      "fmt": {"bix": 80, "len": 16, "max": 65535,                  "unit": "hours"       }, "name": "Ready-on time, total"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "15EE"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_12V_V", "path": "Battery", "fmt": { "len": 8, "max": 80.2, "mul": 0.31448, "add": 0.0125, "unit": "volts" }, "name": "12V battery voltage", "suggestedMetric": "starterBatteryVoltage"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "15F7"}, "freq": 0.5,
+  "signals": [
+    {"id": "SUBARU_12V_C_V2", "path": "Battery", "fmt": { "len": 16, "max": 124, "min": -125, "mul": 38.147, "div": 10000, "add": -125, "unit": "amps" }, "name": "12V battery current"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "15F8"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_12V_T_V2", "path": "Battery", "fmt": { "len": 16, "max": 6513.5, "min": -40, "div": 10, "add": -40, "unit": "celsius" }, "name": "12V battery temperature"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1609"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_CHRG_V", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 10, "unit": "volts" }, "name": "HV battery charge voltage"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1829"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_MAX_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery maximum temperature"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "182A"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_MIN_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery minimum temperature"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F05"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_COOL_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1F0D"}, "freq": 0.25,
+  "signals": [
+    {"id": "SUBARU_VSS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F46"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_AAT", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Ambient temperature"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F49"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_ACC_PEDAL_POS_1", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal, position 1"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F4A"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_ACC_PEDAL_POS_2", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal, position 2"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1F5B"}, "freq": 1,
+  "signals": [
+    {"id": "SUBARU_HVBAT_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "HV battery charge", "suggestedMetric": "stateOfCharge"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F9A"}, "freq": 0.5,
+  "signals": [
+    {"id": "SUBARU_HVBAT_V", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 1023,                   "mul": 156.25, "div": 10000,               "unit": "volts" }, "name": "HV battery voltage"},
+    {"id": "SUBARU_HVBAT_C", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8,                "div": 10,    "sign": true, "unit": "amps"  }, "name": "HV battery current"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1FA6"}, "freq": 10,
+  "signals": [
+    {"id": "SUBARU_ODO_1FA6", "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "01"}, "freq": 5,
   "signals": [
