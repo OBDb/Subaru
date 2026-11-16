@@ -346,7 +346,7 @@
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10E3"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_CRUISE_VSS_T", "path": "Cruise control", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Cruise speed, set"}
+    {"id": "SUBARU_CRUISE_VSS_T", "path": "Cruise control", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Cruise speed, set", "suggestedMetric": "cruiseSetSpeed"}
   ]},
 { "hdr": "7A2", "rax": "7AA", "dbg": true, "cmd": {"22": "10E5"}, "freq": 1,
   "signals": [
@@ -773,7 +773,7 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 5,
   "signals": [
-    {"id": "SUBARU_DRIVE_MODE", "path": "Drivetrain", "name": "Drive mode", "fmt": {"len": 8, "map": {
+    {"id": "SUBARU_DRIVE_MODE", "path": "Drivetrain", "name": "Drive mode", "suggestedMetric": "driveMode", "fmt": {"len": 8, "map": {
           "0":  { "description": "Normal",    "value": "NORMAL" },
           "1":  { "description": "Power",     "value": "POWER" },
           "2":  { "description": "Sport",     "value": "SPORT" },
@@ -796,7 +796,7 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1061"}, "freq": 1,
   "signals": [
-    {"id": "SUBARU_SHIFT", "path": "Transmission", "name": "Shift position", "fmt": {"len": 8, "map": {
+    {"id": "SUBARU_SHIFT", "path": "Transmission", "name": "Shift position", "suggestedMetric": "gearSelector", "fmt": {"len": 8, "map": {
           "0": { "description": "Park",    "value": "P" },
           "2": { "description": "Reverse", "value": "R" },
           "4": { "description": "Neutral", "value": "N" },
