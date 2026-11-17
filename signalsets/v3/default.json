@@ -134,7 +134,12 @@
   ]},
 { "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
-    {"id": "SUBARU_ODO_V2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "SUBARU_ODO_RAW", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Odometer, in the cluster's unit"},
+    {"id": "SUBARU_ODO_UNIT", "path": "Trips", "name": "Odometer unit", "fmt": {"len": 8, "map": {
+          "1": { "description": "Kilometers", "value": "KM" },
+          "2": { "description": "Miles",      "value": "MI" }
+        }}
+    }
   ]},
 { "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "182E"}, "freq": 1,
   "signals": [
@@ -769,7 +774,12 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
-    {"id": "SUBARU_ODO_7D2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "SUBARU_ODO_7D2_RAW", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Odometer, in the cluster's unit"},
+    {"id": "SUBARU_ODO_7D2_UNIT", "path": "Trips", "name": "Odometer unit", "fmt": {"len": 8, "map": {
+          "1": { "description": "Kilometers", "value": "KM" },
+          "2": { "description": "Miles",      "value": "MI" }
+        }}
+    }
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 5,
   "signals": [
